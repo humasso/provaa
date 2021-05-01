@@ -1,23 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocketService } from './socket.service';
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider} from 'angularx-social-login';
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-const config: SocketIoConfig = { url: 'https://3000-white-stork-x1c745tw.ws-eu03.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-purple-hyena-q9cwum6a.ws-eu04.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    HttpClientModule,
+    SocialLoginModule,
+    NgbModule
   ],
-  providers: [SocketService],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('795159690542-0842gi1usvu91j52u9hl1a68k1d0ielk.apps.googleusercontent.com'),
+          }
+        ],
+      } as SocialAuthServiceConfig,
+    }, SocketService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

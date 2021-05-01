@@ -5,12 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SocketService } from './socket.service';
-import { SocialLoginModule, AuthServiceConfig,  GoogleLoginProvider} from 'angular5-social-login';
-import { AuthService } from './auth.service';
-
 
 const config: SocketIoConfig = { url: 'https://3000-white-stork-x1c745tw.ws-eu03.gitpod.io/', options: {} };
-
 
 @NgModule({
   declarations: [
@@ -19,14 +15,9 @@ const config: SocketIoConfig = { url: 'https://3000-white-stork-x1c745tw.ws-eu03
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocketIoModule.forRoot(config),
-    SocialLoginModule,
-    AuthServiceConfig,
-    GoogleLoginProvider,
-    AuthService
+    SocketIoModule.forRoot(config)
   ],
-
-  providers: [SocketService,AuthService],
+  providers: [SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

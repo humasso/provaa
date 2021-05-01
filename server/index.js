@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const socketIo = require('socket.io');
-const mysql = require('mysql');
+const sql = require("mssql");
+
+const server = app.listen(port, () => {
+  console.log(`Server connection on  http://127.0.0.1:${port}`);  // Server Connnected
+});
 
 socketServer = socketIo(server);
 socketServer.on('connection', socket => {
@@ -13,27 +17,23 @@ socketServer.on('connection', socket => {
     });
 });
 
-const con = mysql.createConnection({
-  host: "213.140.22.237\SQLEXPRESS",
-  user: "HUSSAIN.HUMAS", 
-  password: "222000C9+"
-});
+const config = {
+    user: 'HUSSAIN.HUMAS',
+    password: '222000C9+',
+    server: '213.140.22.237\\SQLEXPRESS', 
+    database: 'HUSSAIN.HUMAS' 
+};
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+sql.connect(config, function (err) {
+    
+    if (err) console.log(err);
+    console.log("DB Connected!")
+    /*
+    const request = new sql.Request();
+    request.query('select * from Prestazione', function (err, recordset) {
+            
+        if (err) console.log(err)
+        console.log(recordset);  
+    });
+    */
 });
-
-const server = app.listen(port, () => {
-  console.log(`Server connection on ${port}`);
-});
-/*
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Result: " + result);
-  });
-});
-*/

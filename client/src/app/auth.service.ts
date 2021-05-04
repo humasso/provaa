@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { SocialAuthService } from 'angularx-social-login';
 import { SocialUser } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class LoginComponent implements OnInit {
+export class AuthService {
+
 
   user: SocialUser;
   GoogleLoginProvider = GoogleLoginProvider;
@@ -30,6 +29,11 @@ export class LoginComponent implements OnInit {
 
   signOut(): void {
     this.authService.signOut();
+  }
+
+  getuser() {
+    if (this.loggato != false)
+    return this.user
   }
   /*
   refreshGoogleToken(): void {

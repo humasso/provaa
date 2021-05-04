@@ -17,7 +17,7 @@
       <p class="card-text">Sign in with</p>
     </div>
     <div class="card-block">
-      <button class="" (click)="signInWithGoogle()"><span class="fab fa-google"></span></button>
+      <button class="btn btn-danger" (click)="signInWithGoogle()"><span class="fab fa-google"></span>Google</button>
     </div>
   </div>
   <div *ngIf="user" class="card text-center">
@@ -31,11 +31,14 @@
       <p class="card-text">{{ user.email }}</p>
       <p class="card-text">Logged in with {{ user.provider }}</p>
     </div>
+    <br>
     <div class="card-block">
       <button class="btn btn-danger" (click)="signOut()">Sign out</button>
     </div>
+    <!--
     <div class="card-block" *ngIf="user.provider === GoogleLoginProvider.PROVIDER_ID">
       <button class="btn" (click)="refreshGoogleToken()">Refresh google token</button>
     </div>
+    -->
   </div>
 </div>

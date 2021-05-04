@@ -23,17 +23,18 @@ const config = {
     server: '213.140.22.237\\SQLEXPRESS', 
     database: 'HUSSAIN.HUMAS' 
 };
-
+/*
 sql.connect(config, function (err) {
     
     if (err) console.log(err);
-    console.log("DB Connected!")
-    /*
+    else console.log("DB Connected!");
+
     const request = new sql.Request();
     request.query('select * from Prestazione', function (err, recordset) {
             
         if (err) console.log(err)
         console.log(recordset);  
     });
-    */
+
 });
+*/

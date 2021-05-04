@@ -12,12 +12,15 @@ export class LoginComponent implements OnInit {
 
   user: SocialUser;
   GoogleLoginProvider = GoogleLoginProvider;
+  loggato:boolean;
 
   constructor(private authService: SocialAuthService) { }
 
   ngOnInit(): void {
     this.authService.authState.subscribe(user => {
     this.user = user;
+    this.loggato = (user != null);
+    console.log(user)
     });
   }
 
@@ -28,9 +31,9 @@ export class LoginComponent implements OnInit {
   signOut(): void {
     this.authService.signOut();
   }
-
+  /*
   refreshGoogleToken(): void {
     this.authService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
   }
-
+  */
 }

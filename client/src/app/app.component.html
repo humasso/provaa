@@ -51,10 +51,30 @@
 <br>
 <br>
 
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="roomInput">Scegli Stanza</label>
+            <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="stanza">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col sm-2">
+            <div style="margin-top:19px;" class="pull-right">
+                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+                <button type="button" class="btn btn-danger" (click)="leave()">Leave</button>
+            </div>
+        </div>
+    </div>
+  </div>
+{{stanza}}
+<!--
 <div *ngFor = "let message of messageList">
   {{message}}
 </div>
 
 <input  (keyup)="$event.keyCode == 13 && sendMessage(message)" #message/>
 <button (click)="sendMessage(message)">Send Message</button>
+-->

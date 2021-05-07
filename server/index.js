@@ -11,9 +11,17 @@ const server = app.listen(port, () => {
 socketServer = socketIo(server);
 socketServer.on('connection', socket => {
     console.log('Socket: client connected');
+
     socket.on('new-message', (message) => { 
       socketServer.emit('resp-message', message);
       console.log(message);
+    });
+
+     socket.on('join', function(data){
+
+      socket.join(data.room);
+      console.log(data.user + ' ' + ' joined the room : ' + data.room);
+      socket.broadcast.to(data.room).emit('new user joined ', {user:data.user, message:'has joined this room.'});
     });
 });
 

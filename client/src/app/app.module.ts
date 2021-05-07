@@ -8,6 +8,7 @@ import { SocketService } from './socket.service';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider} from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule } from '@angular/forms';
 
 const config: SocketIoConfig = { url: 'https://3000-purple-muskox-48gw6k3n.ws-eu04.gitpod.io/', options: {} };
 
@@ -21,7 +22,8 @@ const config: SocketIoConfig = { url: 'https://3000-purple-muskox-48gw6k3n.ws-eu
     SocketIoModule.forRoot(config),
     HttpClientModule,
     SocialLoginModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [
     {

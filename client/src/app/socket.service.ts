@@ -6,12 +6,19 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class SocketService {
 
-    constructor(private socket: Socket) { }
+  constructor(private socket: Socket) { }
 
-    sendMessage(msg: string){
-        this.socket.emit("new-message", msg);
-    }
-     getMessage() : Observable<unknown> {
-         return this.socket.fromEvent("resp-message");
-    }
+  joinRoom(data){
+    this.socket.emit('join',data);
+  }
+  leaveRoom(data){
+    this.socket.emit('leave',data);
+  }
+
+  sendMessage(msg: string){
+    this.socket.emit("new-message", msg);
+  }
+    getMessage() : Observable<unknown> {
+    return this.socket.fromEvent("resp-message");
+  }
 }

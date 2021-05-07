@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SocketService } from './socket.service';
 import { AuthService } from './auth.service';
+import { SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,16 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  messageList:  string[] = [];
-  utente: any;
+  messageList: string[] = [];
+  utente: SocialUser;
 
-  constructor(private socketService: SocketService, private AuthService: AuthService) {}
+  constructor(private socketService: SocketService, private authService: AuthService) { }
 
   sendMessage(message: HTMLInputElement) {
     this.socketService.sendMessage(message.value);
 
     console.log("sent: " + message.value)
-    message.value="";
+    message.value = "";
   }
   ngOnInit() {
     this.socketService.getMessage()
@@ -25,13 +26,21 @@ export class AppComponent {
         this.messageList.push(message);
         console.log("messagereceived: " + message)
       });
-    this.utente = this.AuthService.getuser()
-    console.log(this.utente)
+
+    this.authService.getAuthServiceState().subscribe(user => {
+      this.utente = user;
+      console.log(user)
+    });
+
   }
   signInWithGoogle(): void {
-    this.AuthService.signInWithGoogle()
+    this.authService.signInWithGoogle()
   }
   signOut(): void {
-    this.AuthService.signOut();
+    this.authService.signOut();
   }
+  prova(): void {
+    console.log(this.utente)
+  }
+
 }

@@ -9,7 +9,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import { GoogleLoginProvider} from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-const config: SocketIoConfig = { url: 'https://3000-fuchsia-galliform-wpglq3ls.ws-eu03.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-purple-muskox-48gw6k3n.ws-eu04.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [

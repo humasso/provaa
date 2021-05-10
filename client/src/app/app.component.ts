@@ -15,7 +15,7 @@ interface Pippo {
 })
 export class AppComponent {
   obs : Observable<any>;
-  messageList: Array<Pippo> = [];
+  messageList: Array<{utente: String, message: String}> = [];
   utente: SocialUser;
   nome : String;
   stanza : String;
@@ -46,19 +46,23 @@ export class AppComponent {
 
   rcvMessage= (data: any)=>{
     console.log(data)
+    /*
     let p : Pippo;
     p.message = this.messageText;
     p.nome = this.nome;
+    */
     this.messageList.push(data);
     console.log("Message", this.messageText)
   }
 
   join(){
     this.socketService.joinRoom({user:this.nome, room:this.stanza});
+    console.log("utente: " + this.nome + " Stanza: " + this.stanza)
   }
 
   leave(){
     this.socketService.leaveRoom({user:this.nome, room:this.stanza});
+    console.log("utente: " + this.nome + " Ha lasciato la stanza")
   }
 
 

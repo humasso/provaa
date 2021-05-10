@@ -15,10 +15,22 @@ export class SocketService {
     this.socket.emit('leave',data);
   }
 
-  sendMessage(msg: string){
-    this.socket.emit("new-message", msg);
+  sendMessage(data){
+    this.socket.emit("new-message", data);
   }
-    getMessage() : Observable<unknown> {
+  getMessage(){
+    let observable = new Observable<{user:String, message:String}>(observer=>{
+        this.socket.on('resp-message', (data)=>{
+            observer.next(data);
+        });
+        return () => {this.socket.disconnect();}
+    });
+
+    return observable;
+  }
+  /*
+  getMessage() : Observable<unknown> {
     return this.socket.fromEvent("resp-message");
   }
+  */
 }

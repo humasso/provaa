@@ -12,16 +12,23 @@ socketServer = socketIo(server);
 socketServer.on('connection', socket => {
     console.log('Socket: client connected');
 
-    socket.on('new-message', (message) => { 
-      socketServer.emit('resp-message', message);
-      console.log(message);
+    socket.on('new-message', function(data){ 
+      socketServer.in(data.room).emit('resp-message',  {user:data.user, message:data.message});
+      console.log(data.user +" : " + data.message);
     });
 
-     socket.on('join', function(data){
+    socket.on('join', function(data){
 
       socket.join(data.room);
       console.log(data.user + ' ' + ' joined the room : ' + data.room);
       socket.broadcast.to(data.room).emit('new user joined ', {user:data.user, message:'has joined this room.'});
+    });
+
+    socket.on('leave', function(data){
+    
+      console.log(data.user + 'left the room : ' + data.room);
+      socket.broadcast.to(data.room).emit('left room', {user:data.user, message:'has left this room.'});
+      socket.leave(data.room);
     });
 });
 

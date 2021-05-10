@@ -33,23 +33,22 @@ socketServer.on('connection', socket => {
 });
 
 const config = {
-    user: 'HUSSAIN.HUMAS',
-    password: '222000C9+',
+    user: 'LABATI.NICHOLAS',
+    password: 'XXSSSS5O+',
     server: '213.140.22.237\\SQLEXPRESS', 
-    database: 'HUSSAIN.HUMAS' 
+    database: 'LABATI.NICHOLAS' 
 };
-/*
+
 sql.connect(config, function (err) {
     
     if (err) console.log(err);
     else console.log("DB Connected!");
 
     const request = new sql.Request();
-    request.query('select * from Prestazione', function (err, recordset) {
+    request.query('select * from Paziente', function (err, recordset) {
             
         if (err) console.log(err)
         console.log(recordset);  
     });
 
 });
-*/

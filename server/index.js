@@ -3,6 +3,12 @@ const app = express();
 const port = 3000;
 const socketIo = require('socket.io');
 const sql = require("mssql");
+const bodyParser = require('body-parser')
+const cors = require('cors'); 
+
+var utente
+
+app.use(cors());
 
 const server = app.listen(port, () => {
   console.log(`Server connection on  http://127.0.0.1:${port}`);  // Server Connnected
@@ -39,6 +45,22 @@ const config = {
     database: 'LABATI.NICHOLAS' 
 };
 
+app.post("/message",  bodyParser.json(), (req,res) => {
+    console.log("Ricevuto una richiesta POST");
+    console.log(req.body);
+    res.json("Ok bro")
+});
+
+/*
+app.post("/user",  bodyParser.json(), (req,res) => {
+    console.log("Ricevuto una richiesta POST");
+    console.log(req.body);
+    res.json("Utente Ricevuto")
+    utente = req.body;
+    console.log("This is utente: " + utente)
+});
+*/
+/*
 sql.connect(config, function (err) {
     
     if (err) console.log(err);
@@ -50,5 +72,5 @@ sql.connect(config, function (err) {
         if (err) console.log(err)
         console.log(recordset);  
     });
-
 });
+*/

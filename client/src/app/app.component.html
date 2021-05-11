@@ -64,13 +64,15 @@
         <div class="col sm-2">
             <div style="margin-top:19px;" class="pull-right">
                 <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+                <!--
                 <button type="button" class="btn btn-danger" (click)="leave()">Leave</button>
+                 -->
             </div>
         </div>
     </div>
     <div class="row">
         <div class="well" style="height:200px; padding:15px;">
-            <div *ngFor="let item of messageList">
+            <div *ngFor="let item of messageList1">
             <span><strong>{{item.user}} : </strong> {{item.message}}</span>
             </div>
         </div>
@@ -88,7 +90,7 @@
 
 <br>
 <br>
-{{messageList}}
+
 
 <!--
 <div *ngFor = "let message of messageList">

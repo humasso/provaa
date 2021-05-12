@@ -43,13 +43,11 @@
     -->
   </div>
 </div>
-<br>
-<br>
+
+
 
 <button (click)="prova()">Debug</button>
 
-<br>
-<br>
 
 <div class="container-fluid">
     <div class="row">
@@ -91,15 +89,13 @@
     </div>
     <div class="row">
         <div class="col-sm-10">
-            <input type="text" class="form-control" [(ngModel)]="messageText">
+            <input (keyup)="$event.keyCode == 13 && sendMessage()" type="text" class="form-control" [(ngModel)]="messageText">
         </div>
         <div class="col-sm-2">
                 <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
         </div>
     </div>
   </div>
-{{stanza}}
-
 <br>
 <br>
 

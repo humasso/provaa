@@ -24,6 +24,7 @@ export class AppComponent {
   nome : String;
   stanza : String;
   messageText: String;
+  loggato: boolean = false;
 /*
   Condizione per visualizzare le diverse liste di messaggi
   (non serve piu)
@@ -39,10 +40,10 @@ export class AppComponent {
     this.obs = this.socketService.getMessage();
     this.obs.subscribe(this.rcvMessage);
 
-
     this.authService.getAuthServiceState().subscribe(user => {
       this.utente = user;
       this.nome = this.utente.name
+      //this.loggato=true
       console.log(user)
       /*
       const headers = new HttpHeaders()
@@ -52,7 +53,6 @@ export class AppComponent {
       })
       */
     });
-
   }
   sendMessage() {
     this.socketService.sendMessage({user:this.nome, room:this.stanza, message: this.messageText});
@@ -119,9 +119,12 @@ export class AppComponent {
 
   signInWithGoogle(): void {
     this.authService.signInWithGoogle()
+    this.loggato=true;
   }
   signOut(): void {
     this.authService.signOut();
+    this.authService.refreshGoogleToken();
+    this.loggato=false;
   }
   prova(): void {
     console.log(this.utente)

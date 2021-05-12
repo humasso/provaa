@@ -44,7 +44,7 @@ const config = {
     server: '213.140.22.237\\SQLEXPRESS', 
     database: 'LABATI.NICHOLAS' 
 };
-/*
+
 app.post("/message",  bodyParser.json(), (req,res) => {
     console.log("Ricevuto una richiesta POST");
     console.log(req.body);
@@ -54,19 +54,32 @@ app.post("/message",  bodyParser.json(), (req,res) => {
 
     sql.connect(config, function (err) {
     
-    if (err) console.log(err);
-    else console.log("DB Connected!");
-    
-    const request = new sql.Request();
-    request.query(q, function (err, recordset) {     
-        if (err) console.log(err)
-        console.log();  
+        if (err) console.log(err);
+        else console.log("DB Connected!");
+        
+        const request = new sql.Request();
+        request.query(q, function (err, recordset) {     
+            if (err) console.log(err)
+            console.log();  
+        });
     });
+});
+app.get('/list1', function (req, res) {
 
+    let q = `SELECT * FROM Messagge WHERE Stanza='1'`
+
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        var request = new sql.Request();
+        request.query(q, function (err, recordset) {
+            if (err) console.log(err)
+            console.log("Qua funziona");
+            console.log(recordset);
+            res.send(recordset);
+        });
+    });
 });
 
-});
-*/
 /*
 app.post("/user",  bodyParser.json(), (req,res) => {
     console.log("Ricevuto una richiesta POST");

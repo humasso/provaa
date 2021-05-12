@@ -72,17 +72,17 @@
     </div>
     <div class="row">
         <div class="well" style="height:200px; padding:15px;">
-          <div *ngIf="show1">
+          <div *ngIf="stanza=='1'">
             <div *ngFor="let item of messageList1">
               <span><strong>{{item.user}} : </strong> {{item.message}}</span>
             </div>
           </div>
-          <div *ngIf="show2">
+          <div *ngIf="stanza=='2'">
             <div *ngFor="let item of messageList2">
               <span><strong>{{item.user}} : </strong> {{item.message}}</span>
             </div>
           </div>
-          <div *ngIf="show3">
+          <div *ngIf="stanza=='3'">
             <div *ngFor="let item of messageList3">
               <span><strong>{{item.user}} : </strong> {{item.message}}</span>
             </div>

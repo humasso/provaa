@@ -24,11 +24,14 @@ export class AppComponent {
   nome : String;
   stanza : String;
   messageText: String;
+/*
+  Condizione per visualizzare le diverse liste di messaggi
+  (non serve piu)
 
   show1: boolean = false;
   show2: boolean = false;
   show3: boolean = false;
-
+*/
   constructor(private socketService: SocketService, private authService: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
@@ -44,7 +47,7 @@ export class AppComponent {
       /*
       const headers = new HttpHeaders()
           .set('Content-Type', 'application/json');
-      this.http.post<any>('https://3000-tan-scallop-fcdmfh3m.ws-eu04.gitpod.io/user', JSON.stringify({"codice": this.utente.id,"nome":this.utente.lastName, "cognome": this.utente.firstName, "username": this.utente.name, "email": this.utente.email}), {headers: headers}).subscribe(data => {
+      this.http.post<any>('https://3000-beige-unicorn-lkjmqr94.ws-eu04.gitpod.io/user', JSON.stringify({"codice": this.utente.id,"nome":this.utente.lastName, "cognome": this.utente.firstName, "username": this.utente.name, "email": this.utente.email}), {headers: headers}).subscribe(data => {
       console.log(data)
       })
       */
@@ -56,7 +59,7 @@ export class AppComponent {
     /*
     const headers = new HttpHeaders()
           .set('Content-Type', 'application/json');
-    this.http.post<any>('https://3000-tan-scallop-fcdmfh3m.ws-eu04.gitpod.io/message', JSON.stringify({"utente": this.nome,"messagge":this.messageText, "stanza": this.stanza}), {headers: headers}).subscribe(data => {
+    this.http.post<any>('https://3000-beige-unicorn-lkjmqr94.ws-eu04.gitpod.io/message', JSON.stringify({"utente": this.nome,"messagge":this.messageText, "stanza": this.stanza}), {headers: headers}).subscribe(data => {
       console.log(data)
     })
     */
@@ -71,23 +74,29 @@ export class AppComponent {
     p.nome = this.nome;
     */
     if (this.stanza=='1') {
+      /*
       this.show2=false;
       this.show3=false;
       this.show1=true;
+      */
       this.messageList1.push(data);
       console.log("caricato message 1");
     }
-    if (this.stanza=='2') {
+    else if (this.stanza=='2') {
+      /*
       this.show1=false;
       this.show3=false;
       this.show2=true;
+      */
       this.messageList2.push(data);
       console.log("caricato message 2");
     }
-    if (this.stanza=='3') {
+    else if (this.stanza=='3') {
+      /*
       this.show1=false;
       this.show2=false;
       this.show3=true;
+      */
       this.messageList3.push(data);
       console.log("caricato message 3");
     }

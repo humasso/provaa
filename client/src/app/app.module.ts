@@ -10,7 +10,7 @@ import { GoogleLoginProvider} from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule } from '@angular/forms';
 
-const config: SocketIoConfig = { url: 'https://3000-coral-marten-kydt8lju.ws-eu04.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-tan-scallop-fcdmfh3m.ws-eu04.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [

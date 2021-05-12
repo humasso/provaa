@@ -5,7 +5,7 @@ const socketIo = require('socket.io');
 const sql = require("mssql");
 const bodyParser = require('body-parser')
 const cors = require('cors'); 
-
+//const ps = new sql.PreparedStatement();
 var utente
 
 app.use(cors());
@@ -44,13 +44,29 @@ const config = {
     server: '213.140.22.237\\SQLEXPRESS', 
     database: 'LABATI.NICHOLAS' 
 };
-
+/*
 app.post("/message",  bodyParser.json(), (req,res) => {
     console.log("Ricevuto una richiesta POST");
     console.log(req.body);
-    res.json("Ok bro")
+    utente=req.body;
+    res.json("Ok bro");
+    let q = `INSERT INTO Messagge VALUES('${utente.utente}','${utente.messagge}','${utente.stanza}')`;
+
+    sql.connect(config, function (err) {
+    
+    if (err) console.log(err);
+    else console.log("DB Connected!");
+    
+    const request = new sql.Request();
+    request.query(q, function (err, recordset) {     
+        if (err) console.log(err)
+        console.log();  
+    });
+
 });
 
+});
+*/
 /*
 app.post("/user",  bodyParser.json(), (req,res) => {
     console.log("Ricevuto una richiesta POST");

@@ -54,22 +54,29 @@ export class AppComponent {
       */
     });
 
-    this.http.get('https://3000-beige-unicorn-lkjmqr94.ws-eu04.gitpod.io/list1').subscribe(data => {
-        console.log("Succede qualcosa")
-        console.log(data)
-        var temp = JSON.stringify(data['recordset'])
-        console.log(temp)
-        this.messageList1 = [temp['Utente'], temp['Messaggio']]
+
+    this.http.get('https://3000-brown-skunk-3kt3f8t8.ws-eu04.gitpod.io/list1').subscribe(data => {
+        console.log("Succede qualcosa");
+        //console.log(data)
+        var temp =data['recordset'];
+        for(var index in temp){
+          console.log(temp[index].Utente + temp[index].Messaggio);
+          this.messageList1.push( {'utente': temp[index].Utente, 'message': temp[index].Messaggio})
+        }
+        console.log(this.messageList1)
     });
+
   }
   sendMessage() {
     this.socketService.sendMessage({user:this.nome, room:this.stanza, message: this.messageText});
 
+        //(MANDA MESSAGGIO AL DB)
     const headers = new HttpHeaders()
           .set('Content-Type', 'application/json');
-    this.http.post<any>('https://3000-beige-unicorn-lkjmqr94.ws-eu04.gitpod.io/message', JSON.stringify({"utente": this.nome,"messagge":this.messageText, "stanza": this.stanza}), {headers: headers}).subscribe(data => {
+    this.http.post<any>('https://3000-brown-skunk-3kt3f8t8.ws-eu04.gitpod.io/message', JSON.stringify({"utente": this.nome,"messagge":this.messageText, "stanza": this.stanza}), {headers: headers}).subscribe(data => {
       console.log(data)
     })
+
   }
 
 

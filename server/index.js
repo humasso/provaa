@@ -67,6 +67,7 @@ app.post("/message",  bodyParser.json(), (req,res) => {
 app.get('/list1', function (req, res) {
 
     let q = `SELECT * FROM Messagge WHERE Stanza='1'`
+    //let t = [{utente: String, message: String}]
 
     sql.connect(config, function (err) {
         if (err) console.log(err);
@@ -74,7 +75,7 @@ app.get('/list1', function (req, res) {
         request.query(q, function (err, recordset) {
             if (err) console.log(err)
             console.log("Qua funziona");
-            console.log(recordset);
+            //console.log(recordset);
             res.send(recordset);
         });
     });

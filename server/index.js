@@ -21,6 +21,19 @@ socketServer.on('connection', socket => {
     socket.on('new-message', function(data){ 
       socketServer.in(data.room).emit('resp-message',  {user:data.user, message:data.message});
       console.log(data.user +" : " + data.message);
+      let q = `INSERT INTO Messagge VALUES('${data.user}','${data.message}','${data.stanza}')`;
+
+        sql.connect(config, function (err) {
+        
+            if (err) console.log(err);
+            else console.log("DB Connected!");
+            
+            const request = new sql.Request();
+            request.query(q, function (err, recordset) {     
+                if (err) console.log(err)
+                console.log(recordset);  
+            });
+        });
     });
 
     socket.on('join', function(data){

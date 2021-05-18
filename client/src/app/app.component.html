@@ -73,11 +73,13 @@
           <div *ngIf="stanza=='1'">
             <div *ngFor="let item of messageList1">
               <span><strong>{{item.utente}} : </strong> {{item.message}}</span>
+              {{item | json}}
             </div>
           </div>
           <div *ngIf="stanza=='2'">
             <div *ngFor="let item of messageList2">
               <span><strong>{{item.utente}} : </strong> {{item.message}}</span>
+              {{item | json}}
             </div>
           </div>
           <div *ngIf="stanza=='3'">

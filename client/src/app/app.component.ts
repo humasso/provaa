@@ -42,7 +42,7 @@ export class AppComponent {
 
     this.authService.getAuthServiceState().subscribe(user => {
       this.utente = user;
-      this.nome = this.utente.name
+      //this.nome = this.utente.name
       //this.loggato=true
       console.log(user)
       /*
@@ -55,7 +55,7 @@ export class AppComponent {
     });
 
 
-    this.http.get('https://3000-brown-skunk-3kt3f8t8.ws-eu04.gitpod.io/list1').subscribe(data => {
+    this.http.get('https://3000-coffee-starfish-gnjgeyah.ws-eu04.gitpod.io/list1').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -68,15 +68,16 @@ export class AppComponent {
 
   }
   sendMessage() {
-    this.socketService.sendMessage({user:this.nome, room:this.stanza, message: this.messageText});
+    this.socketService.sendMessage({utente:this.utente.name, room:this.stanza, message: this.messageText});
 
-        //(MANDA MESSAGGIO AL DB)
+    //  del (MANDA MESSAGGIO AL DB)
+    /*
     const headers = new HttpHeaders()
           .set('Content-Type', 'application/json');
-    this.http.post<any>('https://3000-brown-skunk-3kt3f8t8.ws-eu04.gitpod.io/message', JSON.stringify({"utente": this.nome,"messagge":this.messageText, "stanza": this.stanza}), {headers: headers}).subscribe(data => {
+    this.http.post<any>('https://3000-coffee-starfish-gnjgeyah.ws-eu04.gitpod.io/message', JSON.stringify({"utente": this.nome,"messagge":this.messageText, "stanza": this.stanza}), {headers: headers}).subscribe(data => {
       console.log(data)
     })
-
+    */
   }
 
 
@@ -119,14 +120,16 @@ export class AppComponent {
 
   join(){
     this.socketService.joinRoom({user:this.nome, room:this.stanza});
-    console.log("utente: " + this.nome + " Stanza: " + this.stanza)
+    console.log("utente: " + this.utente.name + " Stanza: " + this.stanza)
   }
+  /*
+      Non serve
 
   leave(){
     this.socketService.leaveRoom({user:this.nome, room:this.stanza});
-    console.log("utente: " + this.nome + " Ha lasciato la stanza")
+    console.log("utente: " + this.utente.name + " Ha lasciato la stanza")
   }
-
+  */
 
 
 
@@ -142,7 +145,7 @@ export class AppComponent {
   }
   prova(): void {
     console.log(this.utente)
-    console.log(this.nome)
+    console.log(this.utente.name)
   }
 
   /*this.socketService.getMessage()

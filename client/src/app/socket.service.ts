@@ -19,7 +19,7 @@ export class SocketService {
     this.socket.emit("new-message", data);
   }
   getMessage(){
-    let observable = new Observable<{user:String, message:String}>(observer=>{
+    let observable = new Observable<{utente:String, message:String}>(observer=>{
         this.socket.on('resp-message', (data)=>{
             observer.next(data);
         });

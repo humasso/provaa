@@ -8,7 +8,7 @@ const cors = require('cors');
 const infobip = require('infobip');
 //const ps = new sql.PreparedStatement();
 
-var client = new infobip.Infobip('humasso', 'wuK%QSHAU^f1');
+var client = new infobip.Infobip('user', 'password');
 
 
 var utente

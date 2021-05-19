@@ -19,10 +19,10 @@ socketServer.on('connection', socket => {
     console.log('Socket: client connected');
 
     socket.on('new-message', function(data){ 
-      socketServer.in(data.room).emit('resp-message',  {user:data.user, message:data.message});
-      console.log(data.user +" : " + data.message);
-      let q = `INSERT INTO Messagge VALUES('${data.user}','${data.message}','${data.stanza}')`;
-
+      //socketServer.in(data.room).emit('resp-message',  {user:data.user, message:data.message});
+      console.log(data.utente +" : " + data.message + " " + data.room);
+      let q = `INSERT INTO Messagge VALUES('${data.utente}','${data.message}','${data.room}')`;
+        
         sql.connect(config, function (err) {
         
             if (err) console.log(err);
@@ -34,21 +34,23 @@ socketServer.on('connection', socket => {
                 console.log(recordset);  
             });
         });
+    
     });
 
     socket.on('join', function(data){
 
       socket.join(data.room);
-      console.log(data.user + ' ' + ' joined the room : ' + data.room);
+      console.log(data.utente + ' ' + ' joined the room : ' + data.room);
       socket.broadcast.to(data.room).emit('new user joined ', {user:data.user, message:'has joined this room.'});
     });
-
+    /*
     socket.on('leave', function(data){
     
       console.log(data.user + 'left the room : ' + data.room);
       socket.broadcast.to(data.room).emit('left room', {user:data.user, message:'has left this room.'});
       socket.leave(data.room);
     });
+    */
 });
 
 const config = {
@@ -58,6 +60,7 @@ const config = {
     database: 'LABATI.NICHOLAS' 
 };
 
+/*
 app.post("/message",  bodyParser.json(), (req,res) => {
     console.log("Ricevuto una richiesta POST");
     console.log(req.body);
@@ -77,6 +80,7 @@ app.post("/message",  bodyParser.json(), (req,res) => {
         });
     });
 });
+*/
 app.get('/list1', function (req, res) {
 
     let q = `SELECT * FROM Messagge WHERE Stanza='1'`
@@ -87,13 +91,43 @@ app.get('/list1', function (req, res) {
         var request = new sql.Request();
         request.query(q, function (err, recordset) {
             if (err) console.log(err)
-            console.log("Qua funziona");
             //console.log(recordset);
             res.send(recordset);
         });
     });
 });
 
+app.get('/list2', function (req, res) {
+
+    let q = `SELECT * FROM Messagge WHERE Stanza='2'`
+    //let t = [{utente: String, message: String}]
+
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        var request = new sql.Request();
+        request.query(q, function (err, recordset) {
+            if (err) console.log(err)
+            //console.log(recordset);
+            res.send(recordset);
+        });
+    });
+});
+
+app.get('/list3', function (req, res) {
+
+    let q = `SELECT * FROM Messagge WHERE Stanza='3'`
+    //let t = [{utente: String, message: String}]
+
+    sql.connect(config, function (err) {
+        if (err) console.log(err);
+        var request = new sql.Request();
+        request.query(q, function (err, recordset) {
+            if (err) console.log(err)
+            //console.log(recordset);
+            res.send(recordset);
+        });
+    });
+});
 /*
 app.post("/user",  bodyParser.json(), (req,res) => {
     console.log("Ricevuto una richiesta POST");

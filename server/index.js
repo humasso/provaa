@@ -5,7 +5,12 @@ const socketIo = require('socket.io');
 const sql = require("mssql");
 const bodyParser = require('body-parser')
 const cors = require('cors'); 
+const infobip = require('infobip');
 //const ps = new sql.PreparedStatement();
+
+var client = new infobip.Infobip('humasso', 'wuK%QSHAU^f1');
+
+
 var utente
 
 app.use(cors());
@@ -21,6 +26,13 @@ socketServer.on('connection', socket => {
     socket.on('new-message', function(data){ 
       socketServer.in(data.room).emit('resp-message',  {utente:data.utente, message:data.message});
       console.log(data.utente +" : " + data.message + " " + data.room);
+        /*
+      var message = {from: "RE-Chat", to : ["393423461387", "393911423654"], text : data.message};
+      client.SMS.send(message,function(err, response){
+        console.log(response);
+        console.log("Messaggio mandato con successo!")
+      });
+      */
       let q = `INSERT INTO Messagge VALUES('${data.utente}','${data.message}','${data.room}')`;
         
         sql.connect(config, function (err) {

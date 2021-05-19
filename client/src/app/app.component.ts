@@ -31,11 +31,15 @@ export class AppComponent {
   constructor(private socketService: SocketService, private authService: AuthService, private http: HttpClient) { }
 
   ngOnInit() {
+
+    this.obs = this.socketService.getMessage();
+    this.obs.subscribe(this.rcvMessage);
+
     this.authService.getAuthServiceState().subscribe(user => {
       this.utente = user;
       //this.nome = this.utente.name
       //this.loggato=true
-      console.log(user)
+      //console.log(user)
       /*
       const headers = new HttpHeaders()
           .set('Content-Type', 'application/json');
@@ -79,10 +83,9 @@ export class AppComponent {
     });
 
   }
-  sendMessage() {
-    this.socketService.sendMessage({utente:this.utente.name, room:this.stanza, message: this.messageText});
 
-
+  rcvMessage= (data: any)=>{
+    console.log(data)
 
     if (this.stanza=='1') {
       /*
@@ -90,7 +93,7 @@ export class AppComponent {
       this.show3=false;
       this.show1=true;
       */
-      this.messageList1.push({utente:this.utente.name, message: this.messageText});
+      this.messageList1.push(data);
       console.log("caricato message 1");
     }
     else if (this.stanza=='2') {
@@ -99,7 +102,7 @@ export class AppComponent {
       this.show3=false;
       this.show2=true;
       */
-      this.messageList2.push({utente:this.utente.name, message: this.messageText});
+      this.messageList2.push(data);
       console.log("caricato message 2");
     }
     else if (this.stanza=='3') {
@@ -108,10 +111,14 @@ export class AppComponent {
       this.show2=false;
       this.show3=true;
       */
-      this.messageList3.push({utente:this.utente.name, message: this.messageText});
+      this.messageList3.push(data);
       console.log("caricato message 3");
     }
     console.log("Message", this.messageText)
+  }
+  sendMessage() {
+    this.socketService.sendMessage({utente:this.utente.name, room:this.stanza, message: this.messageText});
+
 
     //  del (MANDA MESSAGGIO AL DB)
     /*

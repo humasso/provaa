@@ -19,7 +19,7 @@ socketServer.on('connection', socket => {
     console.log('Socket: client connected');
 
     socket.on('new-message', function(data){ 
-      //socketServer.in(data.room).emit('resp-message',  {user:data.user, message:data.message});
+      socketServer.in(data.room).emit('resp-message',  {utente:data.utente, message:data.message});
       console.log(data.utente +" : " + data.message + " " + data.room);
       let q = `INSERT INTO Messagge VALUES('${data.utente}','${data.message}','${data.room}')`;
         
@@ -41,7 +41,7 @@ socketServer.on('connection', socket => {
 
       socket.join(data.room);
       console.log(data.utente + ' ' + ' joined the room : ' + data.room);
-      socket.broadcast.to(data.room).emit('new user joined ', {user:data.user, message:'has joined this room.'});
+      socket.broadcast.to(data.room).emit('new user joined ', {user:data.utente, message:'has joined this room.'});
     });
     /*
     socket.on('leave', function(data){

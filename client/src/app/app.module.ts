@@ -9,12 +9,16 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import { GoogleLoginProvider} from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
-const config: SocketIoConfig = { url: 'https://3000-sapphire-carp-jctxs8te.ws-eu04.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-ivory-eagle-o0oc37m0.ws-eu08.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

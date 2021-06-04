@@ -1,0 +1,110 @@
+
+
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
+  <div class="container">
+    <div class="navbar-header page-scroll">
+      <a class="navbar-brand" href="">Login</a>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron bg-transparent text-center">
+  <div *ngIf="!utente" class="card text-center">
+    <h6 class="card-header">
+      Social Login Demo
+    </h6>
+    <div class="card-block">
+      <h4 class="card-title">Not signed in</h4>
+      <p class="card-text">Sign in with</p>
+    </div>
+    <div class="card-block">
+      <button class="btn btn-danger" (click)="signInWithGoogle()"><span class="fab fa-google"></span>Google</button>
+    </div>
+  </div>
+  <div *ngIf="utente" class="card text-center">
+    <h6 class="card-header">
+      Social Login Demo
+    </h6>
+    <div class="card-block"></div>
+    <img *ngIf="utente.photoUrl" class="card-img-top img-responsive photo" src="{{ utente.photoUrl }}">
+    <div class="card-block">
+      <h4 class="card-title">{{ utente.name }}</h4>
+      <p class="card-text">{{ utente.email }}</p>
+      <p class="card-text">Logged in with {{ utente.provider }}</p>
+    </div>
+    <br>
+    <div class="card-block">
+      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+    </div>
+    <!--
+    <div class="card-block" *ngIf="user.provider === GoogleLoginProvider.PROVIDER_ID">
+      <button class="btn" (click)="refreshGoogleToken()">Refresh google token</button>
+    </div>
+    -->
+  </div>
+</div>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="roomInput">Scegli Stanza</label>
+            <select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="stanza">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="col sm-2">
+            <div style="margin-top:19px;" class="pull-right">
+                <button type="button" class="btn btn-primary" (click)="join()">Join</button>
+                <!--
+                <button type="button" class="btn btn-danger" (click)="leave()">Leave</button>
+                 -->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="well" style="height:200px; padding:15px;">
+          <div *ngIf="stanza=='1'">
+            <div *ngFor="let item of messageList1">
+              <span><strong>{{item.utente}} : </strong> {{item.message}}</span>
+            </div>
+          </div>
+          <div *ngIf="stanza=='2'">
+            <div *ngFor="let item of messageList2">
+              <span><strong>{{item.utente}} : </strong> {{item.message}}</span>
+            </div>
+          </div>
+          <div *ngIf="stanza=='3'">
+            <div *ngFor="let item of messageList3">
+              <span><strong>{{item.utente}} : </strong> {{item.message}}</span>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+            <input (keyup)="$event.keyCode == 13 && sendMessage()" type="text" class="form-control" [(ngModel)]="messageText">
+        </div>
+        <div class="col-sm-2">
+                <button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+  </div>
+<br>
+<br>
+
+
+<!--
+<div *ngFor = "let message of messageList">
+  {{message}}
+</div>
+
+<input  (keyup)="$event.keyCode == 13 && sendMessage(message)" #message/>
+<button (click)="sendMessage(message)">Send Message</button>
+
+ -->

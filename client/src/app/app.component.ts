@@ -50,7 +50,7 @@ export class AppComponent {
     });
 
 
-    this.http.get('https://3000-ivory-eagle-o0oc37m0.ws-eu08.gitpod.io/list1').subscribe(data => {
+    this.http.get('https://3000-aqua-ferret-bsru6kwt.ws-eu08.gitpod.io/list1').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -61,7 +61,7 @@ export class AppComponent {
         console.log(this.messageList1)
     });
 
-    this.http.get('https://3000-ivory-eagle-o0oc37m0.ws-eu08.gitpod.io/list2').subscribe(data => {
+    this.http.get('https://3000-aqua-ferret-bsru6kwt.ws-eu08.gitpod.io/list2').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -72,7 +72,7 @@ export class AppComponent {
         console.log(this.messageList2)
     });
 
-    this.http.get('https://3000-ivory-eagle-o0oc37m0.ws-eu08.gitpod.io/list3').subscribe(data => {
+    this.http.get('https://3000-aqua-ferret-bsru6kwt.ws-eu08.gitpod.io/list3').subscribe(data => {
         //console.log(data)
         var temp =data['recordset'];
         for(var index in temp){

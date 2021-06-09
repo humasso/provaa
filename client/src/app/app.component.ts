@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
 import { SocialUser } from 'angularx-social-login';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

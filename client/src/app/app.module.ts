@@ -10,14 +10,16 @@ import { GoogleLoginProvider} from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { ChatComponent } from './chat/chat.component';
 
 
-const config: SocketIoConfig = { url: 'https://3000-harlequin-dormouse-5x8594z8.ws-eu08.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-tomato-gerbil-lohlz3hq.ws-eu08.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

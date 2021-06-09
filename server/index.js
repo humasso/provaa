@@ -32,7 +32,7 @@ socketServer.on('connection', socket => {
         console.log(response);
         console.log("Messaggio mandato con successo!")
       });
-      */
+      
       let q = `INSERT INTO Messagge VALUES('${data.utente}','${data.message}','${data.room}')`;
         
         sql.connect(config, function (err) {
@@ -46,6 +46,7 @@ socketServer.on('connection', socket => {
                 console.log(recordset);  
             });
         });
+        */
     
     });
 

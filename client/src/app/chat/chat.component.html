@@ -35,13 +35,73 @@
 			</div>
     </header>
 		<ul id="chat">
-      <div *ngIf="stanza=='1'" class="me">
+      <div *ngIf="stanza != '1' && stanza != '2' && stanza != '3'">
+        <h1>Ciqo</h1>
+      </div>
+      <div *ngIf="stanza=='1'">
         <div *ngFor="let item of messageList1">
-          <div class="entete">
-					<h2>{{item.utente}}</h2>
-					<h3>10:12AM, Today</h3>
-				</div>
-				<div class="message">	{{item.message}} </div>
+          <div *ngIf="item.utente == utente.name">
+            <div class="me">
+              <div class="entete">
+                <h2>{{item.utente}}</h2>
+                <h3>10:12AM, Today</h3>
+				      </div>
+				      <div class="message">	{{item.message}} </div>
+            </div>
+          </div>
+          <div *ngIf="item.utente != utente.name">
+            <div class="you">
+              <div class="entete">
+                <h2>{{item.utente}}</h2>
+                <h3>10:12AM, Today</h3>
+				      </div>
+				      <div class="message">	{{item.message}} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="stanza=='2'">
+        <div *ngFor="let item of messageList2">
+          <div *ngIf="item.utente == utente.name">
+            <div class="me">
+              <div class="entete">
+                <h2>{{item.utente}}</h2>
+                <h3>10:12AM, Today</h3>
+				      </div>
+				      <div class="message">	{{item.message}} </div>
+            </div>
+          </div>
+          <div *ngIf="item.utente != utente.name">
+            <div class="you">
+              <div class="entete">
+                <h2>{{item.utente}}</h2>
+                <h3>10:12AM, Today</h3>
+				      </div>
+				      <div class="message">	{{item.message}} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="stanza=='3'">
+        <div *ngFor="let item of messageList3">
+          <div *ngIf="item.utente == utente.name">
+            <div class="me">
+              <div class="entete">
+                <h2>{{item.utente}}</h2>
+                <h3>10:12AM, Today</h3>
+				      </div>
+				      <div class="message">	{{item.message}} </div>
+            </div>
+          </div>
+          <div *ngIf="item.utente != utente.name">
+            <div class="you">
+              <div class="entete">
+                <h2>{{item.utente}}</h2>
+                <h3>10:12AM, Today</h3>
+				      </div>
+				      <div class="message">	{{item.message}} </div>
+            </div>
+          </div>
         </div>
       </div>
 		</ul>

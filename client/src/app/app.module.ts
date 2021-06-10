@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 
 
-const config: SocketIoConfig = { url: 'https://3000-tomato-gerbil-lohlz3hq.ws-eu08.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-aqua-crow-lcj20jbf.ws-eu09.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [

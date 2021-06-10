@@ -59,7 +59,8 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     this.socketService.sendMessage({utente:this.utente.name, room:this.stanza, message: this.messageText});
     console.log(this.utente.name, this.stanza,  this.messageText)
-    console.log("Send mess")
+    console.log("Send mess");
+    this.messageText='';
   }
 
   classe() {

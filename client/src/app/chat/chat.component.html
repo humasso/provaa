@@ -31,17 +31,28 @@
 	</aside>
 	<main>
 		<header>
-			<div *ngIf="stanza != '1' && stanza != '2' && stanza != '3'">
-				<h1 class="f">Seleziona una Stanza</h1>
-      </div>
+        <div *ngIf="stanza != '1' && stanza != '2' && stanza != '3'">
+          <h1 class="f">Seleziona una Stanza</h1>
+        </div>
       <div *ngIf="stanza == '1'">
-        <img src="./assets/book.png" width="50">
-        <div><h2>Classe</h2></div>
+          <img class="t" src="./assets/book.png">
+          <h2>Classe</h2>
+          <h3>already 1902 messages</h3>
+      </div>
+      <div *ngIf="stanza == '2'">
+          <img class="t" src="./assets/board.jpg">
+          <h2>Professori</h2>
+          <h3>already 1902 messages</h3>
+      </div>
+      <div *ngIf="stanza == '3'">
+          <img class="t" src="./assets/horn.png">
+          <h2>Comunicazioni</h2>
+          <h3>already 1902 messages</h3>
       </div>
     </header>
 		<ul id="chat">
       <div *ngIf="stanza != '1' && stanza != '2' && stanza != '3'" class="logo">
-        <img src="./assets/logo2.png" >
+        <img src="./assets/logo2.png">
       </div>
       <div *ngIf="stanza=='1'">
         <div *ngFor="let item of messageList1">

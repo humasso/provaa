@@ -18,11 +18,119 @@
           <a class="nav-link" routerLink="/chat"> Chat <span class="sr-only">(current)</span></a>
         </li>
         <li>
-           <a class="nav-link" href="#"></a>
+           <a class="nav-link" ></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Voti</a>
         </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link"></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <li>
+           <a class="nav-link" ></a>
+        </li>
+        <div *ngIf="!utente">
+          Effetua il login
+        </div>
+        <div *ngIf="utente">
+          Bentornato {{utente.name}}
+        </div>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item active">
@@ -43,12 +151,6 @@
         </form>
     </div>
   </nav>
-  <div *ngIf="!utente">
-    Effetua il login
-  </div>
-  <div *ngIf="utente">
-      Bentornato {{utente.name}}
-  </div>
   <router-outlet></router-outlet>
 </body>
 

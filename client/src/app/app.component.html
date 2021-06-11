@@ -37,12 +37,18 @@
             <button class="btn btn-dark my-2 my-sm-0" routerLink="/login">Login</button>
           </div>
           <div *ngIf="utente">
-            <img class= "log" style="width:50px" src="{{ utente.photoUrl }}">
+            <img class= "log" style="width:50px" routerLink="/login" src="{{ utente.photoUrl }}">
+
           </div>
         </form>
     </div>
   </nav>
+  <div *ngIf="!utente">
+    Effetua il login
+  </div>
+  <div *ngIf="utente">
+      Bentornato {{utente.name}}
+  </div>
   <router-outlet></router-outlet>
-
 </body>
 

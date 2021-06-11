@@ -166,6 +166,14 @@ main footer{
 }
 
 .stanza {
-  color:#5e24c3;
-  font-weight:bold;
+  color: #ffffff;
 }
+
+.logo {
+  padding:100px 70px 20px;
+}
+
+.f {
+  font-family: "sans-serif"
+}
+

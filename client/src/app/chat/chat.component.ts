@@ -93,7 +93,7 @@ export class ChatComponent implements OnInit {
     this.caricacomunicazioni();
   }
   caricaClasse(){
-    this.http.get('https://3000-moccasin-cow-fdqhj0jp.ws-eu09.gitpod.io/list1').subscribe(data => {
+    this.http.get('https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/list1').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -105,7 +105,7 @@ export class ChatComponent implements OnInit {
     });
   }
   caricaprofessori(){
-    this.http.get('https://3000-moccasin-cow-fdqhj0jp.ws-eu09.gitpod.io/list2').subscribe(data => {
+    this.http.get('https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/list2').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -117,7 +117,7 @@ export class ChatComponent implements OnInit {
     });
   }
   caricacomunicazioni(){
-    this.http.get('https://3000-moccasin-cow-fdqhj0jp.ws-eu09.gitpod.io/list3').subscribe(data => {
+    this.http.get('https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/list3').subscribe(data => {
         //console.log(data)
         var temp =data['recordset'];
         for(var index in temp){

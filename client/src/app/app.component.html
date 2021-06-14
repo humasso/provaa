@@ -14,15 +14,19 @@
         <li>
           <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/chat"> Chat <span class="sr-only">(current)</span></a>
-        </li>
+        <div *ngIf="utente">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/chat"> Chat <span class="sr-only">(current)</span></a>
+          </li>
+        </div>
         <li>
            <a class="nav-link" ></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Voti</a>
-        </li>
+        <div *ngIf="utente">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Voti</a>
+          </li>
+        </div>
         <li>
            <a class="nav-link" ></a>
         </li>

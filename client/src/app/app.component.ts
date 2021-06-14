@@ -11,14 +11,15 @@ import { SocialUser } from 'angularx-social-login';
 export class AppComponent {
   utente: SocialUser;
   loggato: Boolean = false;
+  currentDate = new Date();
 
   constructor(private authService: AuthService) { }
-
   ngOnInit() {
     this.authService.getAuthServiceState().subscribe(user => {
       console.log("prova")
       this.utente = user;
       this.loggato = true;
+      this.currentDate = new Date();
     });
   }
 }

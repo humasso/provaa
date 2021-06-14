@@ -24,7 +24,7 @@
         </li>
         <div *ngIf="utente">
           <li class="nav-item">
-            <a class="nav-link" href="#">Voti</a>
+            <a class="nav-link" routerLink="/voti">Voti</a>
           </li>
         </div>
         <li>
@@ -150,11 +150,14 @@
           </div>
           <div *ngIf="utente">
             <img class= "log" style="width:50px" routerLink="/login" src="{{ utente.photoUrl }}">
-
           </div>
         </form>
     </div>
   </nav>
+  <div class="dt">
+    <p>{{currentDate | date:'dd-MM-yyyy'}} <br>
+      ---{{currentDate | date:'HH:mm'}}---</p>
+  </div>
   <router-outlet></router-outlet>
 </body>
 

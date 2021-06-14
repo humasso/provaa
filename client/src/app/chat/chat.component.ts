@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SocialUser } from 'angularx-social-login';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
@@ -20,6 +20,7 @@ export class ChatComponent implements OnInit {
   //nome : String;
   stanza : String;
   messageText: String;
+  @ViewChild('scroll', { static: true }) scroll: any;
 
   constructor(private authService: AuthService, private socketService: SocketService, private http: HttpClient) { }
 
@@ -33,10 +34,13 @@ export class ChatComponent implements OnInit {
     this.obs = this.socketService.getMessage();
     this.obs.subscribe(this.rcvMessage);
   }
+  ngAfterViewInit() {
+    this.scroll.nativeElement.scrollTo(0, this.scroll.nativeElement.scrollHeight);
+  }
 
   join(){
     this.socketService.joinRoom({utente:this.utente.name, room:this.stanza});
-    console.log("utente: " + this.utente.name + " Stanza: " + this.stanza)
+    console.log("utente: " + this.utente.name + " Stanza: " + this.stanza);
   }
 
   rcvMessage= (data: any)=>{
@@ -69,6 +73,7 @@ export class ChatComponent implements OnInit {
       console.log(data)
     })
     */
+   this.scroll.nativeElement.scrollTo(0, this.scroll.nativeElement.scrollHeight);
   }
 
   classe() {
@@ -93,7 +98,7 @@ export class ChatComponent implements OnInit {
     this.caricacomunicazioni();
   }
   caricaClasse(){
-    this.http.get('https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/list1').subscribe(data => {
+    this.http.get('https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/list1').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -105,7 +110,7 @@ export class ChatComponent implements OnInit {
     });
   }
   caricaprofessori(){
-    this.http.get('https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/list2').subscribe(data => {
+    this.http.get('https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/list2').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -117,7 +122,7 @@ export class ChatComponent implements OnInit {
     });
   }
   caricacomunicazioni(){
-    this.http.get('https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/list3').subscribe(data => {
+    this.http.get('https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/list3').subscribe(data => {
         //console.log(data)
         var temp =data['recordset'];
         for(var index in temp){

@@ -11,15 +11,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
+import { VotiComponent } from './voti/voti.component';
 
 
-const config: SocketIoConfig = { url: 'https://3000-indigo-rattlesnake-8qo41ge6.ws-eu09.gitpod.io/', options: {} };
+
+const config: SocketIoConfig = { url: 'https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ChatComponent,
+    VotiComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ const config: SocketIoConfig = { url: 'https://3000-indigo-rattlesnake-8qo41ge6.
     HttpClientModule,
     SocialLoginModule,
     NgbModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     {

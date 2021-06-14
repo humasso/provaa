@@ -6,14 +6,17 @@ const sql = require("mssql");
 const bodyParser = require('body-parser')
 const cors = require('cors'); 
 const infobip = require('infobip');
-//const ps = new sql.PreparedStatement();
 
-var client = new infobip.Infobip('user', 'password');
+const accountSid = 'AC87eab13c9b24145de3ae7e984cd3ed54';
+const authToken = '1de2db4ac8b49aa40a7305eeea43d0a9';
+const client = require('twilio')(accountSid, authToken);
+
 
 
 var utente
 
 app.use(cors());
+
 
 const server = app.listen(port, () => {
   console.log(`Server connection on  http://127.0.0.1:${port}`);  // Server Connnected
@@ -26,13 +29,11 @@ socketServer.on('connection', socket => {
     socket.on('new-message', function(data){ 
       socketServer.in(data.room).emit('resp-message',  {utente:data.utente, message:data.message});
       console.log(data.utente +" : " + data.message + " " + data.room);
-        /*
-      var message = {from: "RE-Chat", to : ["393423461387", "393911423654"], text : data.message};
-      client.SMS.send(message,function(err, response){
-        console.log(response);
-        console.log("Messaggio mandato con successo!")
-      });
-      */
+      if(data.room == '3') {
+        client.messages
+        .create({body: data.message, from: '+13026483158', to: '+393423461387'})
+        .then(message => console.log(message.sid));
+      }
       let q = `INSERT INTO Messagge VALUES('${data.utente}','${data.message}','${data.room}')`;
         
         sql.connect(config, function (err) {

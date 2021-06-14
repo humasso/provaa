@@ -1,0 +1,78 @@
+<body class="pol">
+  <br>
+  <h1>Descrizione del Progetto:</h1>
+  <div class="row">
+    <div class="col"><p>Il Progetto riguarda la creazione di un'applicazione web per studenti. <br>
+     La struttura dell'applicazione è di un semplice registro elettronico, con l’aggiunta di una sezione chat dove gli studenti possono parlare con i professori oppure con i compagni di classe; <br>
+     inoltre è presente anche una chat-room per le comunicazioni importanti (avvisi scolastici, circolari e comunicazioni dei professori), i messaggi mandati in questa chat-room vengono inoltrati via SMS a tutti i partecipanti per facilitare le comunicazioni urgenti. <br>
+     L’applicazione è pensata per una classe sola; gli utenti accedono utilizzando l'autenticazione di google, inserendo la propria email e password. <br> Una volta eseguito l’accesso verranno indirizzati alla homepage dove si trovano le notizie e le informazioni principali.
+     L’invio dei messaggi viene fatto attraverso Socket IO e tutte le comunicazioni vengono salvate sul DB <br> attraverso un collegamento fra Node js e MSSQL.
+     <br> Le notifiche SMS vengono gestite da un servizio di Rest Api chiamato INFOBIP.</p></div>
+  </div>
+  <br>
+  <br>
+  <h1>Servizi utilizzati:</h1>
+  <br>
+  <div>
+    <ul>
+      <li><h4>Angular</h4>  <img src="./assets/angular.png" width="50"></li>
+      <li><h4>Api Google</h4>  <img src="./assets/google.png" width="50"></li>
+      <li><h4>Bootstrap</h4>  <img src="./assets/bootstrap.png" width="50"></li>
+      <li><h4>Socket.io</h4>  <img src="./assets/socket.svg" width="50"></li>
+      <li><h4>Mssql</h4>  <img src="./assets/database.png" width="50"></li>
+      <li><h4>InfoBip</h4>  <img src="./assets/infobip.png" width="50"></li>
+    </ul>
+  </div>
+  <br>
+  <h1 class="pol">Problemi Riscontrati nello sviluppo del progetto:</h1>
+  <div class="pol">
+    <p>Per quanto le piattaforme di coding online siano utili, le cosiddette “ready-to-code” non sono uno strumento ottimale per sviluppare un applicazione. <br>
+  Gitpod per esempio, richiede molto tempo per avviarsi e bisogna aspettare che vengano caricate tutte le modifiche fatte in precedenza. <br> Inoltre non lavorando in locale,
+  quando si avvia un server Node, questo non avrà il solito indirizzo “Localhost” ma uno generato da gitpod; questo indirizzo cambia ogni volta che si avvia Gitpod,
+  quindi se ci sono richieste per il server attraverso l’url, bisogna aver premura di  cambiare questo indirizzo ogni volta.
+  <br> </p>
+  <p>Visto che gli indirizzi cambiano ogni volta che si avvia Gitpod, in google console per implementare l'autenticazione bisogna acconsentire ogni volta per
+    i nuovi indirizzi le “Origini JavaScript autorizzate”.
+  </p>
+  <p> InfoBip pur essendo un servizio api gratuito, nella versione di prova non permette di mandare più di 50 sms per account (per mandarne altri bisogna pagare). <br>
+    InfoBip nella versione di prova non permette di registrare più di 2 numeri nel loro sistema.
+    Non è possibile mandare messaggi a numeri non registrati, per cui si possono mandare sms solo a quei 2 numeri registrati.
+  </p>
+  <p>
+    L’integrazione fra grafica e parte server dell'applicazione è difficile; è meglio concentrarsi prima sullo sviluppo delle funzionalità
+    e della parte del server e dopo aggiungere la grafica. <br> Facendo le due cose insieme si perde tempo, invece farle separatamente e poi integrarle è molto complicato.
+  </p>
+  <p>
+    Google Chrome blocca automaticamente il popup della finestra di autenticazione,
+    per il browser non è considerato attendibile perché non è un indirizzo registrato. Per cui ho dovuto usare Microsoft Edge per sviluppare l’applicazione.
+  </p>
+  </div>
+  <br>
+
+  <div class="pol">
+    <h1>Gruppo:</h1>
+    <br>
+    <h4>--Hussain Humas--</h4>
+    <ul>
+      <li>sviluppo servizio chat</li>
+      <li>collegamneto con DB per salvataggio messaggi</li>
+    </ul>
+    <br>
+    <br>
+    <h4>--Labati Nicholas--</h4>
+    <ul>
+      <li>Implemento di Google Authenticator</li>
+      <li>Grafica dell'applicazione</li>
+    </ul>
+  </div>
+</body>
+<br>
+<br>
+<br>
+<br>
+<div class="piro">
+  piccolo contributo di piro <br>
+  tnx bro
+  <a class="al" routerLink="/es">banana</a>
+</div>
+

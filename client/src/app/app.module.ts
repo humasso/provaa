@@ -12,6 +12,8 @@ import {FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import { VotiComponent } from './voti/voti.component';
+import { AboutComponent } from './about/about.component';
+import { EsComponent } from './es/es.component';
 
 
 
@@ -23,6 +25,8 @@ const config: SocketIoConfig = { url: 'https://3000-peach-barracuda-3g9gcw9e.ws-
     LoginComponent,
     ChatComponent,
     VotiComponent,
+    AboutComponent,
+    EsComponent,
   ],
   imports: [
     BrowserModule,

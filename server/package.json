@@ -17,6 +17,7 @@
     "infobip": "^0.1.0",
     "mssql": "^6.3.1",
     "nodemon": "^2.0.7",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "twilio": "^3.63.1"
   }
 }

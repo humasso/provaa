@@ -8,7 +8,7 @@ const cors = require('cors');
 const infobip = require('infobip');
 
 const accountSid = 'AC87eab13c9b24145de3ae7e984cd3ed54';
-const authToken = '1de2db4ac8b49aa40a7305eeea43d0a9';
+const authToken = 'e5f80a032ba0c83d6ebf85c3e96f70c6';
 const client = require('twilio')(accountSid, authToken);
 
 
@@ -30,6 +30,7 @@ socketServer.on('connection', socket => {
       socketServer.in(data.room).emit('resp-message',  {utente:data.utente, message:data.message});
       console.log(data.utente +" : " + data.message + " " + data.room);
       if(data.room == '3') {
+          console.log("Prova")
         client.messages
         .create({body: data.message, from: '+13026483158', to: '+393423461387'})
         .then(message => console.log(message.sid));

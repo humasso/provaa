@@ -98,7 +98,7 @@ export class ChatComponent implements OnInit {
     this.caricacomunicazioni();
   }
   caricaClasse(){
-    this.http.get('https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/list1').subscribe(data => {
+    this.http.get('https://3000-ivory-dingo-yuvxo1f9.ws-eu09.gitpod.io/list1').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -110,7 +110,7 @@ export class ChatComponent implements OnInit {
     });
   }
   caricaprofessori(){
-    this.http.get('https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/list2').subscribe(data => {
+    this.http.get('https://3000-ivory-dingo-yuvxo1f9.ws-eu09.gitpod.io/list2').subscribe(data => {
         console.log("Succede qualcosa");
         //console.log(data)
         var temp =data['recordset'];
@@ -122,7 +122,7 @@ export class ChatComponent implements OnInit {
     });
   }
   caricacomunicazioni(){
-    this.http.get('https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/list3').subscribe(data => {
+    this.http.get('https://3000-ivory-dingo-yuvxo1f9.ws-eu09.gitpod.io/list3').subscribe(data => {
         //console.log(data)
         var temp =data['recordset'];
         for(var index in temp){

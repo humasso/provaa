@@ -17,7 +17,7 @@ import { EsComponent } from './es/es.component';
 
 
 
-const config: SocketIoConfig = { url: 'https://3000-peach-barracuda-3g9gcw9e.ws-eu09.gitpod.io/', options: {} };
+const config: SocketIoConfig = { url: 'https://3000-ivory-dingo-yuvxo1f9.ws-eu09.gitpod.io/', options: {} };
 
 @NgModule({
   declarations: [
